@@ -14,6 +14,7 @@ static int nb_token(char *str, char token)
     int size;
 
     i = 0;
+    size = 0;
     while (str[i] != '\0') {
         if (str[i] == token)
             size += 1;
@@ -48,13 +49,15 @@ char **split(char *str, char token)
         k = 0;
         liste = malloc(sizeof(char) * strlentok(&str[i], token) + 1);
         while (str[i] != token && str[i]) {
+            printf("str[i]: %c\n", str[i]);
             liste[k] = str[i];
             i += 1;
             k += 1;
         }
         liste[k] = '\0';
         sp[j] = liste;
-        i += 1;
+        if (str[i] != '\0')
+            i += 1;
         j += 1;
     }
     sp[j] = NULL;

@@ -16,7 +16,7 @@ Test(split, normal)
     cr_assert_str_eq(sp[0], "hello");
     cr_assert_str_eq(sp[1], "world");
     cr_assert_not(sp[2]);
-    //split_delete(sp);
+    split_delete(sp);
 }
 
 
