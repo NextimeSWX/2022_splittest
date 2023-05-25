@@ -8,7 +8,7 @@
 
 #include "stu.h"
 
-unsigned int split_size(const char **sp)
+unsigned int split_size(char **sp)
 {
     
 }

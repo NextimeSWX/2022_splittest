@@ -11,12 +11,16 @@
 
 #include <criterion/criterion.h>
 #include <criterion/new/assert.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 
-char **split(const char *str, char token);
+char **split(char *str, char token);
 void split_delete(char **sp);
 void split_print(char **sp);
-unsigned int split_size(const char **sp);
+unsigned int split_size(char **sp);
+char *stu_strdup(const char *src);
+unsigned int stu_strlen(const char *str);
 
 #endif

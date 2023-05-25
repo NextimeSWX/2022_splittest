@@ -4,11 +4,13 @@
 # 1st author:  Élise C. Philippe - eriizu
 # description: Building the project
 
-NAME	=	all.out
+NAME	=	split.a
 
 NAME_TEST = 	test.out
 
-SRCS	=	src/split.c
+SRCS	=	src/split.c		\
+		src/strdup.c		\
+		src/strlen.c		\
 
 SRCS_TEST =	test/test_split.c
 
@@ -32,7 +34,7 @@ ifdef DEBUG
 CFLAGS += -g
 endif
 
-all: $(NAME_TEST)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)

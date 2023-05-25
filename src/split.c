@@ -8,40 +8,55 @@
 
 #include "stu.h"
 
-char **split(const char *str, char token)
+static int nb_token(char *str, char token)
 {
-    char **tab;
-    char *liste;
+    int i;
     int size;
+
+    i = 0;
+    while (str[i] != '\0') {
+        if (str[i] == token)
+            size += 1;
+        i += 1;
+    }
+    return (size);
+}
+
+static int strlentok(char *str, char token)
+{
+    int i;
+
+    i = 0;
+    while (str[i] != token && str[i]) {
+        i += 1;
+    }
+    return (i);
+}
+
+char **split(char *str, char token)
+{
+    char **sp;
+    char *liste;
     int i;
     int j;
     int k;
 
     i = 0;
     j = 0;
-    k = 0;
-    size = 0;
-    if (str == NULL)
-        return (NULL);
-    while (str[i] != '\0') {
-        if (str[i] == token)
-            size += 1;
-        i += 1
-            }
-    i = 0;
-    tab = malloc(sizeof(char) * size + 2);
-    tab[size + 2] = '\0';
-    while (str[i] != '\0') {
-        while (str[i] != token) {
+    sp = malloc(sizeof(char *) * (nb_token(str, token) + 2));
+    while (str[i]) {
+        k = 0;
+        liste = malloc(sizeof(char) * strlentok(&str[i], token) + 1);
+        while (str[i] != token && str[i]) {
             liste[k] = str[i];
             i += 1;
             k += 1;
         }
-        tab[j] = strdup(liste);
-        k = 0;
-        j += 1;
+        liste[k] = '\0';
+        sp[j] = liste;
         i += 1;
+        j += 1;
     }
-    free(liste);
-    return (tab);
+    sp[j] = NULL;
+    return (sp);
 }

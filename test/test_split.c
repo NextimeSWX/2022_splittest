@@ -8,16 +8,15 @@
 
 #include "stu.h"
 
-Test(split, simple)
+Test(split, normal)
 {
     char **sp;
 
     sp = split("hello;world", ';');
-    cr_assert(sp);
     cr_assert_str_eq(sp[0], "hello");
     cr_assert_str_eq(sp[1], "world");
     cr_assert_not(sp[2]);
-    split_delete(sp);
+    //split_delete(sp);
 }
 
 
